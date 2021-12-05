@@ -12,14 +12,14 @@ import { data } from '../../data/data'
 export const InfoBox = (props) => {
     const { stepText, stepTextNumber, textDescription, textInput, progressBar, infoBaseClass, stepTextColor, stepTextNumberColor, textDescriptionColor } = props
     const [Level, setLevel] = React.useState(10);
-    const styles = {
-        root: {
-            flexGrow: 1
-        },
-        colorPrimary: {
-            color: "green"
-        }
-    };
+    // const useStyles = makeStyles((theme) => ({
+    //     bar: props => ({
+    //         borderRadius: 8,
+    //         backgroundColor: 'pink'
+    //    })
+    // }))
+    const [progressColor, setProgressColor] = React.useState({ color: 'red' })
+    // const classes = useStyles(progressColor);
     useEffect(() => {
         const timer = setInterval(() => {
             setLevel((newLevel) => newLevel >= 100 ? 100 : newLevel + 10)
@@ -48,8 +48,8 @@ export const InfoBox = (props) => {
                     {progressBar === true ? (
                         <div className="graphAndProgressBar">
                             <div>
-                                <Box sx={{ width: '100%' }}>
-                                    <LinearProgress variant="determinate" className={styles.colorPrimary} value={Level} />
+                                <Box sx={{ width: '100%', height:"30px", backgroundColor:'white', display:"flex", justifyContent:"center", alignItems:'center', border:"1px solid black" }}>
+                                    <LinearProgress variant="determinate" color="secondary" style={{height:"10px", width:"80%"}} value={Level} />
                                 </Box>
                             </div>
 
