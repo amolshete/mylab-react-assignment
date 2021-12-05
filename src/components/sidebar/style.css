@@ -1,0 +1,30 @@
+.sideNav{
+    flex:1;
+    height: 100vh;
+    /* background-color: gainsboro; */
+    position: sticky;
+}
+.sidebarWrapper{
+    padding: 20px;
+}
+.sideNavTitle{
+    font-size: 40px;
+    font-weight: bold;
+    color: gray;
+}
+.sidebarlist{
+    list-style: none;
+    padding: 5px;
+}
+.sideBarListItems{
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 200;
+}
+.sideBarListItems.active,
+.sideBarListItems:hover{
+    color: orange;
+}
