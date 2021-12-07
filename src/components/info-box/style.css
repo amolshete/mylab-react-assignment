@@ -1,4 +1,4 @@
-.infoBox{
+.infoBox {
     height: 100px;
     width: 80%;
     background-color: white;
@@ -6,14 +6,45 @@
     margin-bottom: 30px;
     justify-content: center;
 }
-.infoBoxWrapper{
+.infoBoxWrapper {
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
-.infoBoxWrapperProgress{
+@media (max-width: 820px) {
+    .infoBoxWrapper-container {
+        flex-direction: column;
+    }
+    .infoBox-container {
+        height: 400px;
+        width: 80%;
+        background-color: white;
+        display: flex;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+    .infoBoxWrapperProgress-container {
+        display: flex !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+        margin-top: 10px !important;
+    }
+    .wrapperGraph-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .graphDivWrapper-container {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+    }
+}
+.infoBoxWrapperProgress {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -21,40 +52,105 @@
     align-items: center;
     margin-top: 10px;
 }
-.progressBarWrapper{
+.progressBarWrapper {
     display: flex;
     width: 100%;
     flex-direction: column;
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
 }
-.startingSteps{
+.startingSteps {
     width: 15%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.textDescription{
+.wrapperTextAndDivision {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    align-items: center;
+    padding-left: 10px;
+}
+.buttonIconWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+}
+@media (max-width: 450px) {
+    .startingSteps {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .startingStepsText {
+        margin-right: 5px;
+    }
+    .divisionLine {
+        border-bottom: 1px solid darkslategray;
+        width: 200px;
+        border-left: none !important;
+        height: 0px !important;
+    }
+    .wrapperTextAndDivision {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 5px;
+        align-items: center;
+    }
+    .textDescription {
+        width: 100% !important;
+        justify-content: center;
+        display:flex;
+    }
+    .buttonIconWrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .iconWrapper {
+        display: flex;
+        height: 0px !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+ .submitButton {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-right: 40px !important;
+}
+}
+.textDescription {
     width: 35%;
 }
-.inputTag{
+.inputTag {
     width: 30%;
 }
-.buttonIcon{
-    width: 10%;
+.buttonIcon {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     height: 60px;
     align-items: center;
 }
-.startingStepsText{
+.startingStepsText {
     font-size: 20px;
     font-weight: 500;
     color: darkslategray;
 }
-.startingStepsNumberText{
+.loremText {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+.loremText span{
+    padding: 10px;
+}
+.startingStepsNumberText {
     font-size: 20px;
     font-weight: 500;
     margin-right: 20px;
@@ -66,16 +162,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-.textDescriptionSpan{
+.textDescriptionSpan {
     font-size: 25px;
     margin-left: 20px;
     font-weight: 300;
     font-weight: 400;
     color: darkslategray;
 }
-.inputTag input{
+.inputTag input {
     height: 40px;
     width: 90%;
     color: darkslategray;
@@ -84,7 +179,7 @@
     border-color: 1px solid darkslategray;
     padding-left: 20px;
 }
-.button button{
+.button button {
     height: 30px;
     width: 60px;
     background-color: rgba(8, 8, 58, 0.767);
@@ -93,57 +188,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-border: none;
+    border: none;
 }
-.iconClass{
+.iconClass {
     color: white;
     background-color: limegreen;
     height: 20px;
     width: 20px;
     border-radius: 50%;
 }
-.iconWrapper{
+.iconWrapper {
     display: flex;
     height: 70px;
     justify-content: flex-start;
     align-items: flex-start;
 }
-.divisionLine{
+.divisionLine {
     border-left: 1px solid darkslategray;
     height: 80px;
 }
-.graphAndProgressBar{
- 
-}
-.progressBarClass{
-    /* display: flex;
-    flex-direction: column;
-    background-color: yellow; */
-}
-.divisonBetweenGraph{
+.divisonBetweenGraph {
     border-bottom: 1px solid darkslategray;
-    width: 90%;   
+    width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
 }
-.graphClass{
+.graphClass {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.graphDivWrapper{
+.graphDivWrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-align-items: center;
+    align-items: center;
 }
-.loremText{
+.loremText {
     width: 30%;
 }
-.wrapperGraph{
+.wrapperGraph {
     display: flex;
     flex-direction: column;
 }
@@ -153,7 +240,7 @@ align-items: center;
     align-items: flex-end;
     margin-right: 40px;
 }
-.submitButton button{
+.submitButton button {
     color: white;
     width: 90px;
     height: 30px;
@@ -162,8 +249,8 @@ align-items: center;
     border-radius: 5px;
     font-size: 20px;
 }
-/* @media (max-width: 800px) {
-    .flex-container {
-      flex-direction: column;
-    }
-} */
+.lineChartClass {
+    background-color: red;
+    height: 200px !important;
+    width: 200px !important;
+}

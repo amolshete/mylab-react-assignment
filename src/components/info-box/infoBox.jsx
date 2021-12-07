@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 import CheckIcon from '@mui/icons-material/Check';
 import PropTypes from 'prop-types';
@@ -13,20 +13,28 @@ export const InfoBox = (props) => {
     const { stepText, stepTextNumber, textDescription, textInput, progressBar, infoBaseClass, stepTextColor, stepTextNumberColor, textDescriptionColor } = props
     const [Level, setLevel] = React.useState(10);
     const [progressColor, setProgressColor] = React.useState({ color: 'red' })
+    const [innerWidth, setInnerWidth] = useState(window.screen.width)
     useEffect(() => {
+        const acualWidth = () =>{
+            setInnerWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', acualWidth)
         const timer = setInterval(() => {
             setLevel((newLevel) => newLevel >= 100 ? 100 : newLevel + 10)
         }, 1000)
         return () => {
+            window.removeEventListener("resize", acualWidth)
             clearInterval(timer)
         }
-    }, [])
+    })
     return (
-        <div className={infoBaseClass ? infoBaseClass : "infoBox"}>
-            <div className={progressBar ? "infoBoxWrapperProgress flex-container" : "infoBoxWrapper flex-container"}>
+        <div className={infoBaseClass ? infoBaseClass : "infoBox infoBox-container"}>
+            <div className={progressBar ? "infoBoxWrapperProgress infoBoxWrapperProgress-container" : "infoBoxWrapper infoBoxWrapper-container"}>
                 <div className="startingSteps">
+                    <div className="wrapperTextAndDivision">
                     <span className={stepTextColor ? stepTextColor : "startingStepsText"}>{stepText}</span>
                     <span className={stepTextNumberColor ? stepTextNumberColor : "startingStepsNumberText"}>{stepTextNumber}</span>
+                    </div>
                     <div className="divisionLine"></div>
                 </div>
                 <div className="textDescription">
@@ -49,6 +57,7 @@ export const InfoBox = (props) => {
                         </div>
                     ) : ""}
                 </div>
+                <div className="buttonIconWrapper">
                 <div className="buttonIcon">
                     <div className="button">
                         <button>OK</button>
@@ -57,15 +66,16 @@ export const InfoBox = (props) => {
                 <div className="iconWrapper">
                     <CheckIcon className="iconClass" />
                 </div>
+                </div>
             </div>
             {progressBar === true ? (<div className="divisonBetweenGraph"></div>) : ""}
 
             <div className="graphClass">
                 {progressBar && Level === 100 ? (
                     <div className="wrapperGraph">
-                        <div className="graphDivWrapper">
+                        <div className="graphDivWrapper graphDivWrapper-container">
                             <div className="graph">
-                                <LineChart width={400} height={300} data={data}>
+                                <LineChart width={innerWidth <= 575  ? 244 : 400} height={innerWidth <= 575 ? 280 : 300} data={data}>
                                     <XAxis dataKey="name" />
                                     <YAxis />
                                     <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
@@ -80,7 +90,7 @@ export const InfoBox = (props) => {
                         </div>
                             <div className="submitButton">
                                 <button>
-                                    Submit
+                                    Submit 
                                 </button>
                             </div>
                     </div>
