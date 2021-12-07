@@ -4,8 +4,8 @@ import { SideNav } from './components/sidebar/sidenav'
 import {HomePage} from './container/main-content/index'
 function App() {
   return (
-    <div className="App">
-      <div className="container">
+    <div className="App ">
+      <div className="container flex-container">
       <SideNav />
       <div className="mainContent">
        <HomePage/>

@@ -12,14 +12,7 @@ import { data } from '../../data/data'
 export const InfoBox = (props) => {
     const { stepText, stepTextNumber, textDescription, textInput, progressBar, infoBaseClass, stepTextColor, stepTextNumberColor, textDescriptionColor } = props
     const [Level, setLevel] = React.useState(10);
-    // const useStyles = makeStyles((theme) => ({
-    //     bar: props => ({
-    //         borderRadius: 8,
-    //         backgroundColor: 'pink'
-    //    })
-    // }))
     const [progressColor, setProgressColor] = React.useState({ color: 'red' })
-    // const classes = useStyles(progressColor);
     useEffect(() => {
         const timer = setInterval(() => {
             setLevel((newLevel) => newLevel >= 100 ? 100 : newLevel + 10)
@@ -30,7 +23,7 @@ export const InfoBox = (props) => {
     }, [])
     return (
         <div className={infoBaseClass ? infoBaseClass : "infoBox"}>
-            <div className={progressBar ? "infoBoxWrapperProgress" : "infoBoxWrapper"}>
+            <div className={progressBar ? "infoBoxWrapperProgress flex-container" : "infoBoxWrapper flex-container"}>
                 <div className="startingSteps">
                     <span className={stepTextColor ? stepTextColor : "startingStepsText"}>{stepText}</span>
                     <span className={stepTextNumberColor ? stepTextNumberColor : "startingStepsNumberText"}>{stepTextNumber}</span>
