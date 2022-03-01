@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+     name: mylab-deployment
+     labels: 
+       app: mylab  
+spec:
+     replicas: 2
+     selector: 
+        matchLables:
+              app: mylab     
+     template:
+           metadata:
+             labels:
+               app: mylab        
+           spec: 
+              container:
+              -  name: mylab
+                 image: amol1996/mylab:v2
+---
+
+apiVersion: apps/v1
+kind: Service
+metadata: 
+   name: mylab-service
+spec:
+   selector:
+           app: mylab
+   ports: 
+    - port: 8080
+      targetPort: 80
+
